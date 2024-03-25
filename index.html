@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Password Generator</title>
+  </head>
+  <body class="bg-[#181818] grid grid-cols-12 py-[5vh]">
+    <main
+      class="col-start-2 col-span-10 h-[90vh] w-full flex flex-col gap-10 p-5"
+    >
+      <div class="px-4 h-[200px] flex flex-col justify-between">
+        <div
+          class="font-bold text-2xl text-center text-green-400 text-opacity-80 underline mb-5"
+        >
+          Welcome To The Smart Password Generator
+        </div>
+        <div class="h-[150px]">
+          <ol
+            class="flex flex-col justify-between h-full list-decimal list-inside font-semibold text-sm text-white text-opacity-60"
+          >
+            <li>
+              Add The Rules The Generated Password Must Obey
+              <span class="text-yellow-400"
+                >(Remember That The Order Of The Rules Affect How The Password
+                Is Generated ie Starting Rules Have More Impact On Generated
+                Password)</span
+              >
+            </li>
+            <li>Click The Generate Password Button</li>
+            <li>
+              Copy Your Generated Password String And Show It To Your Friends
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center">
+        <div
+          id="passwordDisplay"
+          class="bg-black bg-opacity-70 text-yellow-400 w-[40%] h-[50px] flex justify-begin p-4 items-center rounded-md"
+        >
+          <span class="font-sm text-sm font-thin"
+            >Your Generated Password Will Appear Here</span
+          >
+        </div>
+      </div>
+
+      <form
+        class="flex flex-col gap-4 rounded-sm border-2 border-gray-600"
+        id="passwordRulesForm"
+      >
+        <div
+          class="border-b-white border-b-2 border-opacity-30 flex justify-center gap-3 items-center font-semibold text-sm h-[100px]"
+        >
+          <label for="passwordLength" class="text-green-500"
+            >Enter The Length Of The Password:</label
+          >
+          <input
+            type="number"
+            name="passwordLength"
+            min="0"
+            pattern="[0-9]*"
+            class="bg-black text-white w-[70px] h-[70px] appearance-none focus:outline-none flex justify-center items-center p-2 font-bold text-lg border border-green-900"
+          />
+        </div>
+        <div class="flex">
+          <div
+            id="exclusionRules"
+            class="min-h-[200px] w-full border-r-2 border-r-white border-opacity-30 flex flex-col items-center gap-3 p-3"
+          >
+            <div class="bg-red-300 h-[50px] w-[90%] flex items-center gap-3">
+              <label
+                for="exclusionRule"
+                class="font-bold text-sm h-full w-[150px] flex items-center justify-center"
+                >Must Not Contain</label
+              >
+              <input
+                type="text"
+                placeholder="......"
+                name="exclusionRule"
+                class="h-full text-base w-full bg-transparent placeholder:text-black placeholder:text-opacity-100 font-bold text-black"
+              />
+            </div>
+
+            <div class="w-[90%] mt-[20px] h-[50px] flex justify-begin">
+              <button
+                class="h-full rounded-md p-2 bg-red-600 font-semibold text-sm text-white"
+                id="addExclusionRule"
+              >
+                Add Exclusion Rule
+              </button>
+            </div>
+          </div>
+          <div
+            id="inclusionRules"
+            class="min-h-[200px] w-full border-l-2 border-l-white border-opacity-30 flex flex-col items-center gap-3 p-3"
+          >
+            <div class="bg-green-300 h-[50px] w-[90%] flex items-center gap-3">
+              <label
+                for="inclusionRule"
+                class="font-bold text-sm h-full w-[150px] flex items-center justify-center"
+                >Must Contain</label
+              >
+              <input
+                type="text"
+                name="inclusionRule"
+                placeholder="......"
+                class="h-full text-base w-full bg-transparent placeholder:text-black placeholder:text-opacity-100 font-bold text-black"
+              />
+            </div>
+
+            <div class="w-[90%] mt-[20px] h-[50px] flex justify-end">
+              <button
+                class="h-full rounded-md p-2 bg-green-600 font-semibold text-sm text-white"
+                id="addInclusionRule"
+              >
+                Add Inclusion Rule
+              </button>
+            </div>
+          </div>
+        </div>
+        <button
+          id="formSubmitter"
+          type="submit"
+          class="h-[60px] my-[30px] w-[60%] p-3 bg-yellow-400 text-black font-bold text-sm rounded-full mx-auto b hover:bg-black hover:text-yellow-400 border-[3px] border-green-900 hover:border-yellow-400"
+        >
+          Generate Password From The Above Rules
+        </button>
+      </form>
+    </main>
+    <script src="/client.js"></script>
+  </body>
+</html>
